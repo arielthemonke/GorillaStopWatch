@@ -2,7 +2,9 @@
 using System.IO;
 using System.Reflection;
 using BepInEx;
+using GorillaStats;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace GorillaStopWatch
 {
@@ -16,7 +18,17 @@ namespace GorillaStopWatch
 
         void Init()
         {
-            HarmonyPatches.ApplyHarmonyPatches();
+            GorillaStatsAPI.RegisterPage(new Page());
         }
+        
+        // remove later
+        void Update()
+        {
+            if (ControllerInputPoller.instance.leftControllerPrimaryButton)
+            {
+                NotifLib.instance.SendNotification("message yay", 2f);
+            }
+        }
+        
     }
 }
