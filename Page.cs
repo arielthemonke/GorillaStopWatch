@@ -9,22 +9,22 @@ namespace GorillaStopWatch
     {
         static float elapsedTime = 0f;
         static bool isRunning = false;
-        private bool primaryWasPressed;
-        private bool secondaryWasPressed;
+        private bool leftWasPressed;
+        private bool rightWasPressed;
         
         public string PageName => "Gorilla StopWatch";
         
         public string GetPageText()
         {
-            bool primaryPressed = ControllerInputPoller.instance.rightControllerPrimaryButton;
-            bool secondaryPressed = ControllerInputPoller.instance.rightControllerSecondaryButton;
+            bool leftPressed = ControllerInputPoller.instance.leftControllerPrimaryButton;
+            bool rightPressed = ControllerInputPoller.instance.rightControllerPrimaryButton;
             
-            if (primaryPressed && !primaryWasPressed || Keyboard.current.sKey.wasPressedThisFrame)
+            if (rightPressed && !rightWasPressed || Keyboard.current.sKey.wasPressedThisFrame)
             {
                 isRunning = !isRunning;
             }
 
-            if (secondaryPressed && !secondaryWasPressed || Keyboard.current.aKey.wasPressedThisFrame)
+            if (leftPressed && !leftWasPressed || Keyboard.current.aKey.wasPressedThisFrame)
             {
                 elapsedTime = 0f;
                 isRunning = false;
@@ -40,8 +40,8 @@ namespace GorillaStopWatch
             string text = $"StopWatch:\n{time:mm\\:ss\\:ff}";
             
             
-            primaryWasPressed = ControllerInputPoller.instance.rightControllerPrimaryButton;
-            secondaryWasPressed = ControllerInputPoller.instance.rightControllerSecondaryButton;
+            leftWasPressed = ControllerInputPoller.instance.leftControllerPrimaryButton;
+            rightWasPressed = ControllerInputPoller.instance.rightControllerPrimaryButton;
             
             return text;
         }

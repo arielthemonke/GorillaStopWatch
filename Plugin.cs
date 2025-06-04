@@ -18,17 +18,7 @@ namespace GorillaStopWatch
 
         void Init()
         {
-            GorillaStatsAPI.RegisterPage(new Page());
+            GorillaStatsPageManager.RegisterPage(new Page());
         }
-        
-        // remove later
-        void Update()
-        {
-            if (ControllerInputPoller.instance.leftControllerPrimaryButton)
-            {
-                NotifLib.instance.SendNotification("message yay", 2f);
-            }
-        }
-        
     }
 }
