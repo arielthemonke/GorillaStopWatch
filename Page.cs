@@ -12,7 +12,7 @@ namespace GorillaStopWatch
         private bool leftWasPressed;
         private bool rightWasPressed;
         
-        public string PageName => "Gorilla StopWatch";
+        public string PageName => "GorillaStopWatch";
         
         public string GetPageText()
         {
